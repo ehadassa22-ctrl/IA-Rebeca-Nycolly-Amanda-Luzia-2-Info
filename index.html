@@ -1,0 +1,851 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IA - Rebeca, Amanda, Nycolly e Luzia</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #fff7fd;
+  color: #54476b;
+}
+
+header {
+  background: #d9c5ff;
+  text-align: center;
+  padding: 25px 15px;
+}
+
+header h1 {
+  color: #644295;
+  margin: 0;
+  font-size: 27px;
+}
+
+header p {
+  color: #695384;
+}
+
+nav {
+  background: #f6e5ff;
+  text-align: center;
+  padding: 15px;
+}
+
+nav a {
+  color: #704f9b;
+  margin: 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #e078ac;
+}
+
+.pagina {
+  display: none;
+  max-width: 1000px;
+  margin: auto;
+  padding: 30px 20px;
+}
+
+.pagina.ativa {
+  display: block;
+}
+
+.inicio {
+  text-align: center;
+}
+
+.inicio img {
+  width: 90%;
+  max-width: 400px;
+  border-radius: 25px;
+}
+
+h2 {
+  text-align: center;
+  color: #8759b5;
+}
+
+.intro {
+  max-width: 650px;
+  margin: 20px auto;
+  text-align: center;
+  line-height: 1.7;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.card {
+  background: white;
+  border: 2px solid #efdcff;
+  border-radius: 20px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 5px 12px #d9c5ff55;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.card:hover {
+  background: #fdf0ff;
+  transform: translateY(-4px);
+}
+
+.emoji {
+  font-size: 48px;
+}
+
+.card h3 {
+  color: #8651af;
+}
+
+.card p {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.aula {
+  background: white;
+  border: 2px solid #efdcff;
+  border-radius: 25px;
+  padding: 30px;
+  margin-top: 20px;
+  box-shadow: 0 5px 15px #d9c5ff55;
+  line-height: 1.8;
+}
+
+.aula h3 {
+  color: #8759b5;
+  margin-top: 25px;
+}
+
+.aula p {
+  margin-bottom: 15px;
+}
+
+.aula ul, .aula ol {
+  padding-left: 25px;
+}
+
+.aula li {
+  margin: 10px 0;
+}
+
+.destaque {
+  background: #f6eaff;
+  border-left: 5px solid #b994ee;
+  padding: 18px;
+  border-radius: 12px;
+  margin: 20px 0;
+}
+
+.botoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+button {
+  background: #b994ee;
+  color: white;
+  border: none;
+  padding: 13px 22px;
+  border-radius: 25px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #9464d2;
+}
+
+.final {
+  background: #f3e2ff;
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+  line-height: 1.8;
+}
+
+footer {
+  background: #d9c5ff;
+  text-align: center;
+  padding: 20px;
+  color: #644295;
+  line-height: 1.6;
+}
+
+@media (max-width: 650px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .aula {
+    padding: 20px;
+  }
+
+  header h1 {
+    font-size: 23px;
+  }
+
+  nav a {
+    display: inline-block;
+    margin: 7px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>🤖 Rebeca, Amanda, Nycolly e Luzia Apresentam: 💜</h1>
+  <p>Um pouco sobre Inteligência Artificial!</p>
+</header>
+
+<nav>
+  <a href="#inicio">Início</a>
+  <a href="#temas">Temas</a>
+  <a href="#final">Conclusão</a>
+</nav>
+
+<!-- PÁGINA INICIAL -->
+<section class="pagina ativa" id="inicio">
+  <div class="inicio">
+    <h2>✨ Bem-vindo ao mundo da IA!</h2>
+    <img src="robo-ia.png" alt="Robô fofinho">
+    <p class="intro">
+      A Inteligência Artificial transformou
+      e continua transformando o nosso mundo!
+      Vamos descobrir o que ela é, como funciona
+      e como podemos utilizá-la?
+    </p>
+    <button onclick="abrir('temas')">
+      🌸 Vamos aprender?
+    </button>
+  </div>
+</section>
+
+<!-- PÁGINA DOS TEMAS -->
+<section class="pagina" id="temas">
+  <h2>🌸 Vamos aprender?</h2>
+  <p class="intro">
+    Escolha um assunto para explorar!
+    Clique em um dos cartões abaixo.
+  </p>
+
+  <div class="cards" id="lista-temas"></div>
+</section>
+
+<!-- AS DEZ PÁGINAS SERÃO INSERIDAS AQUI -->
+<main id="paginas-aulas"></main>
+
+<!-- CONCLUSÃO -->
+<section class="pagina" id="final">
+  <div class="final">
+    <h2>💖 Conclusão</h2>
+    <p>
+      A Inteligência Artificial pode ser uma
+      grande aliada nos estudos, no trabalho
+      e na vida.
+    </p>
+    <p>
+      Aprender a utilizá-la com criatividade,
+      responsabilidade e consciência é essencial
+      para aproveitar suas oportunidades.
+    </p>
+    <p>
+      Esperamos que vocês tenham aprendido
+      um pouquinho mais sobre esse universo!
+    </p>
+    <p>
+      <h2>💖 Fontes</h2>
+    <p>1. IBM — O que é Inteligência Artificial?</p>  
+     <p>2. IBM — IA, Machine Learning e Deep Learning</p> 
+     <p>3. Google — Curso intensivo de Machine Learning</p> 
+     <p>4. UNESCO — Ética da Inteligência Artificial</p>
+     <p>5. Organização Mundial da Saúde — IA na Saúde🤖💜</p>
+      <h2>💖 IA Usada:</h2>
+    <p>Parte do CSS, Emoticons e para os cartõs clicaveis.</p>  
+      
+    </p>
+    <button onclick="abrir('temas')">
+      🌸 Voltar aos temas
+    </button>
+  </div>
+</section>
+
+<footer>
+  <p>
+    🌷 Trabalho PC II - 2º Módulo<br>
+    Por: Rebeca, Amanda, Nycolly e Luzia<br>
+    Turma B | Página HTML sobre IA 🌷
+  </p>
+</footer>
+
+<script>
+const temas = [
+  {
+    emoji: "🤖",
+    titulo: "O que é Inteligência Artificial?",
+    resumo: "Descubra o que é IA e como ela funciona.",
+    conteudo: `
+      <h3>💜 O que é Inteligência Artificial?</h3>
+      <p>
+        A Inteligência Artificial é um campo da
+        ciência da computação que desenvolve
+        sistemas capazes de realizar tarefas
+        associadas à inteligência humana.
+      </p>
+      <p>
+        Esses sistemas podem reconhecer padrões,
+        analisar informações, resolver problemas
+        e apoiar decisões.
+      </p>
+
+      <h3>⚙️ Como a IA funciona?</h3>
+      <ol>
+        <li><b>Coleta de dados:</b>
+        o sistema recebe exemplos, como textos
+        e imagens.</li>
+
+        <li><b>Algoritmos:</b>
+        regras matemáticas são utilizadas
+        para analisar informações.</li>
+
+        <li><b>Reconhecimento de padrões:</b>
+        a máquina identifica características
+        semelhantes nos dados.</li>
+
+        <li><b>Aprendizado:</b>
+        durante o treinamento, o modelo ajusta
+        seus parâmetros para melhorar os resultados.</li>
+      </ol>
+
+      <div class="destaque">
+        🌟 Exemplo: uma IA pode aprender a reconhecer
+        gatos em fotografias depois de analisar
+        muitos exemplos.
+      </div>
+      <center><img src="gato.png"></center>
+    `
+  },
+
+  {
+    emoji: "🧠",
+    titulo: "IA, Machine Learning e Deep Learning",
+    resumo: "Entenda as diferenças entre essas tecnologias.",
+    conteudo: `
+      <h3>🤖 Inteligência Artificial (IA)</h3>
+      <p>
+        É o conceito mais amplo. Envolve tecnologias
+        desenvolvidas para executar tarefas que
+        normalmente exigem inteligência humana.
+      </p>
+
+      <h3>📊 Machine Learning</h3>
+      <p>
+        É uma área da IA chamada aprendizado de máquina.
+        Os sistemas aprendem padrões a partir de dados,
+        sem precisar de uma regra específica para
+        cada situação.
+      </p>
+
+      <h3>🧠 Deep Learning</h3>
+      <p>
+        É uma área do Machine Learning que utiliza
+        redes neurais artificiais com diversas
+        camadas para aprender padrões complexos.
+      </p>
+
+      <div class="destaque">
+        💡 Resumindo:<br>
+        Inteligência Artificial é a área geral.<br>
+        Machine Learning faz parte da IA.<br>
+        Deep Learning faz parte do Machine Learning.
+      </div>
+            <center><img src="robo.png"></center>
+
+    `
+  },
+
+  {
+    emoji: "📱",
+    titulo: "IA no dia a dia e no trabalho",
+    resumo: "Veja como a IA pode facilitar nossa rotina.",
+    conteudo: `
+      <h3>🏠 IA no dia a dia</h3>
+      <p>
+        A Inteligência Artificial pode ajudar
+        em diferentes atividades cotidianas.
+      </p>
+      <ul>
+        <li>Organizar horários e tarefas.</li>
+        <li>Auxiliar nos estudos.</li>
+        <li>Planejar viagens.</li>
+        <li>Organizar finanças pessoais.</li>
+        <li>Traduzir textos e idiomas.</li>
+      </ul>
+
+      <h3>💼 IA no trabalho</h3>
+      <p>
+        Nas empresas, a IA auxilia a produtividade
+        e a análise de informações.
+      </p>
+      <ul>
+        <li>Resumir reuniões e documentos.</li>
+        <li>Analisar grandes volumes de dados.</li>
+        <li>Ajudar na criação de apresentações.</li>
+        <li>Apoiar a criação de sites.</li>
+        <li>Automatizar tarefas repetitivas.</li>
+      </ul>
+
+      <div class="destaque">
+        🌸 A IA pode economizar tempo, mas seus
+        resultados precisam ser conferidos.
+      </div>
+        <center><img src="planner.png"></center>
+
+    `
+  },
+
+  {
+    emoji: "⚖️",
+    titulo: "Riscos e impactos da IA",
+    resumo: "Conheça os benefícios e desafios para a sociedade.",
+    conteudo: `
+      <h3>🌟 Benefícios da IA</h3>
+      <p>
+        A Inteligência Artificial pode ajudar
+        na medicina, melhorar processos,
+        apoiar a educação e facilitar
+        tarefas do cotidiano.
+      </p>
+
+      <h3>⚠️ Principais riscos</h3>
+      <ul>
+        <li><b>Empregos:</b> algumas tarefas
+        podem ser automatizadas.</li>
+
+        <li><b>Desinformação:</b> a IA pode
+        produzir conteúdos falsos.</li>
+
+        <li><b>Privacidade:</b> informações
+        pessoais podem ser utilizadas
+        inadequadamente.</li>
+
+        <li><b>Discriminação:</b> sistemas
+        podem reproduzir preconceitos
+        presentes nos dados.</li>
+
+        <li><b>Meio ambiente:</b> centros
+        de dados consomem energia e água.</li>
+      </ul>
+
+      <div class="destaque">
+        💜 O desenvolvimento responsável da IA
+        exige cuidado com a segurança,
+        a privacidade e os direitos das pessoas.
+      </div>
+              <center><img src="riscos.png"></center>
+
+    `
+  },
+
+  {
+    emoji: "📚",
+    titulo: "Como aprender IA do zero",
+    resumo: "Veja por onde começar seus estudos.",
+    conteudo: `
+      <h3>🌸 Primeiro passo: escolha seu objetivo</h3>
+      <p>
+        Você pode aprender a utilizar ferramentas
+        de IA no cotidiano ou estudar como
+        desenvolver sistemas inteligentes.
+      </p>
+
+      <h3>📖 Caminho para iniciantes</h3>
+      <ol>
+        <li>Conheça os conceitos básicos de IA.</li>
+        <li>Aprenda o que é IA generativa.</li>
+        <li>Pratique a criação de prompts.</li>
+        <li>Experimente ferramentas de IA.</li>
+        <li>Estude lógica e programação,
+        caso queira desenvolver modelos.</li>
+      </ol>
+
+      <h3>💻 Ferramentas para conhecer</h3>
+      <p>
+        ChatGPT, Gemini e Claude são exemplos
+        de assistentes que podem apoiar
+        atividades de aprendizagem.
+      </p>
+
+      <div class="destaque">
+        ✨ Você pode começar com conceitos
+        simples e avançar aos poucos,
+        praticando regularmente.
+      </div>
+      <center><img src="aprender.png"></center>
+    `
+  },
+
+  {
+    emoji: "💻",
+    titulo: "Como treinar Machine Learning",
+    resumo: "Conheça as etapas de treinamento de um modelo.",
+    conteudo: `
+      <h3>🧠 O que significa treinar um modelo?</h3>
+      <p>
+        Treinar um modelo de Machine Learning
+        significa utilizar dados para que
+        um algoritmo aprenda padrões e
+        faça previsões.
+      </p>
+
+      <h3>⚙️ Etapas do treinamento</h3>
+      <ol>
+        <li><b>Coleta de dados:</b>
+        reunir informações confiáveis.</li>
+
+        <li><b>Limpeza:</b>
+        corrigir erros e tratar
+        valores ausentes.</li>
+
+        <li><b>Divisão:</b>
+        separar dados para treino e teste.</li>
+
+        <li><b>Algoritmo:</b>
+        escolher um modelo adequado.</li>
+
+        <li><b>Treinamento:</b>
+        ajustar o modelo com os dados.</li>
+
+        <li><b>Avaliação:</b>
+        verificar o desempenho com
+        dados que ele não utilizou
+        no treinamento.</li>
+      </ol>
+
+      <div class="destaque">
+        🌟 Exemplo: um modelo pode aprender
+        a identificar mensagens de spam
+        utilizando exemplos de e-mails.
+      </div>
+           <center> <img src="treinar.png"></center>
+
+    `
+  },
+
+  {
+    emoji: "💬",
+    titulo: "O que são prompts?",
+    resumo: "Aprenda a escrever instruções melhores para a IA.",
+    conteudo: `
+      <h3>💬 O que é um prompt?</h3>
+      <p>
+        Prompt é uma instrução enviada
+        a uma Inteligência Artificial
+        para orientar sua resposta.
+      </p>
+
+      <p>
+        Pode ser uma pergunta, um pedido, um comando
+        de explicação ou uma descrição
+        do conteúdo que desejamos criar.
+      </p>
+
+      <h3>✨ Como escrever prompts melhores?</h3>
+      <ol>
+        <li>Explique o que deseja.</li>
+        <li>Comandos informações importantes.</li>
+        <li>Defina o público da resposta.</li>
+        <li>Informe o formato desejado.</li>
+        <li>Peça ajustes quando necessário.</li>
+      </ol>
+
+      <h3>🌸 Exemplo</h3>
+      <div class="destaque">
+        "Explique o que é Inteligência Artificial
+        para estudantes do ensino médio,
+        utilizando linguagem simples
+        e três exemplos do cotidiano."
+      </div>
+
+      <p>
+        Um comando claro ajuda a IA
+        a produzir respostas mais úteis.
+      </p>
+                  <center><img src="comando.png"></center>
+
+    `
+  },
+
+  {
+    emoji: "🏥",
+    titulo: "IA em diferentes áreas",
+    resumo: "Descubra suas aplicações na sociedade.",
+    conteudo: `
+      <h3>🏥 IA na medicina</h3>
+      <p>
+        Auxilia profissionais na análise de
+        exames, identificação de alterações
+        e estudo de tratamentos.
+      </p>
+      <p>
+        A supervisão humana continua essencial
+        para decisões sobre a saúde.
+      </p>
+
+      <h3>📚 IA na educação</h3>
+      <p>
+        Pode explicar conteúdos, criar
+        exercícios e oferecer apoio
+        personalizado aos estudantes.
+      </p>
+
+      <h3>💰 IA nas finanças</h3>
+      <p>
+        É utilizada para identificar
+        transações suspeitas, analisar
+        riscos e organizar informações.
+      </p>
+
+      <h3>📢 IA no marketing</h3>
+      <p>
+        Ajuda empresas a conhecer preferências
+        de consumidores, analisar campanhas
+        e produzir ideias para conteúdos.
+      </p>
+
+      <div class="destaque">
+        💜 A IA pode apoiar profissionais
+        de muitas áreas, sempre com
+        atenção à qualidade das informações.
+      </div>
+                        <center><img src="areas.jpg"></center>
+
+    `
+  },
+
+  {
+    emoji: "🚀",
+    titulo: "IA e o futuro das profissões",
+    resumo: "Veja como o trabalho está mudando.",
+    conteudo: `
+      <h3>💼 Como a IA transforma o trabalho?</h3>
+      <p>
+        A Inteligência Artificial automatiza
+        determinadas tarefas e modifica
+        a maneira como muitas profissões
+        são exercidas.
+      </p>
+
+      <h3>🔍 Áreas que podem mudar</h3>
+      <ul>
+        <li>Atendimento ao cliente.</li>
+        <li>Administração e escritórios.</li>
+        <li>Programação e tecnologia.</li>
+        <li>Marketing e produção de conteúdo.</li>
+        <li>Finanças e análise de dados.</li>
+      </ul>
+
+      <h3>🌟 Novas oportunidades</h3>
+      <p>
+        Também existem oportunidades
+        relacionadas ao desenvolvimento,
+        à avaliação e à utilização
+        responsável da IA.
+      </p>
+
+      <div class="destaque">
+        🚀 Aprender novas habilidades
+        e entender como trabalhar com IA
+        pode ajudar na preparação
+        para o futuro profissional.
+      </div>
+       <center><img src="futuro.png"></center>
+    `
+  },
+
+  {
+    emoji: "🎓",
+    titulo: "Carreira em IA sem faculdade",
+    resumo: "Saiba como começar sua jornada profissional.",
+    conteudo: `
+      <h3>🎓 É possível começar sem faculdade?</h3>
+      <p>
+        Sim! Existem cursos, materiais
+        gratuitos e projetos que permitem
+        iniciar os estudos de Inteligência
+        Artificial de forma independente.
+      </p>
+
+      <h3>💻 Como começar?</h3>
+      <ol>
+        <li>Estude os conceitos básicos de IA.</li>
+        <li>Aprenda lógica de programação.</li>
+        <li>Conheça a linguagem Python.</li>
+        <li>Estude dados e Machine Learning.</li>
+        <li>Crie pequenos projetos.</li>
+        <li>Monte um portfólio com seus trabalhos.</li>
+      </ol>
+
+      <h3>🌸 Uma dica importante</h3>
+      <p>
+        A prática e a dedicação ajudam
+        a desenvolver habilidades.
+        Algumas vagas podem exigir
+        formação específica, enquanto
+        outras valorizam bastante a
+        experiência demonstrada em projetos.
+      </p>
+
+      <div class="destaque">
+        💜 O primeiro passo é começar
+        a aprender e colocar os
+        conhecimentos em prática!
+      </div>
+             <center><img src="carreira.jpeg" width="450" height="320"></center>
+
+    `
+  }
+];
+
+// CRIAR OS CARTÕES
+const lista = document.getElementById("lista-temas");
+
+temas.forEach((tema, i) => {
+  const card = document.createElement("div");
+  card.className = "card";
+  card.tabIndex = 0;
+  card.setAttribute("role", "button");
+
+  card.innerHTML = `
+    <div class="emoji">${tema.emoji}</div>
+    <h3>${tema.titulo}</h3>
+    <p>${tema.resumo}</p>
+    <button>Abrir assunto 💜</button>
+  `;
+
+  card.onclick = () => abrir("aula" + i);
+
+  card.onkeydown = (evento) => {
+    if (evento.key === "Enter" ||
+        evento.key === " ") {
+      evento.preventDefault();
+      abrir("aula" + i);
+    }
+  };
+
+  lista.appendChild(card);
+});
+
+// CRIAR AS PÁGINAS DOS ASSUNTOS
+const paginas = document.getElementById("paginas-aulas");
+
+temas.forEach((tema, i) => {
+  const pagina = document.createElement("section");
+  pagina.className = "pagina";
+  pagina.id = "aula" + i;
+
+  let anterior = i === 0 ? "temas" : "aula" + (i - 1);
+  let proximo = i === 9 ? "final" : "aula" + (i + 1);
+
+  pagina.innerHTML = `
+    <h2>${tema.emoji} ${tema.titulo}</h2>
+
+    <div class="aula">
+      ${tema.conteudo}
+    </div>
+
+    <div class="botoes">
+      <button onclick="abrir('${anterior}')">
+        ⬅️ Anterior
+      </button>
+
+      <button onclick="abrir('temas')">
+        🌸 Voltar aos temas
+      </button>
+
+      <button onclick="abrir('${proximo}')">
+        Próximo ➡️
+      </button>
+    </div>
+  `;
+
+  paginas.appendChild(pagina);
+});
+
+// MOSTRAR UMA PÁGINA POR VEZ
+function abrir(id) {
+  const pagina = document.getElementById(id);
+  if (!pagina || !pagina.classList.contains("pagina")) {
+    return;
+  }
+
+  document.querySelectorAll(".pagina")
+    .forEach(p => p.classList.remove("ativa"));
+
+  pagina.classList.add("ativa");
+
+  if (location.hash !== "#" + id) {
+    history.pushState(null, "", "#" + id);
+  }
+
+  window.scrollTo(0, 0);
+}
+
+// NAVEGAÇÃO PELO MENU
+document.querySelectorAll("nav a").forEach(link => {
+  link.addEventListener("click", evento => {
+    evento.preventDefault();
+    abrir(link.getAttribute("href").slice(1));
+  });
+});
+
+// PERMITIR VOLTAR PELO NAVEGADOR
+window.addEventListener("popstate", () => {
+  const id = location.hash.slice(1) || "inicio";
+
+  document.querySelectorAll(".pagina")
+    .forEach(p => p.classList.remove("ativa"));
+
+  const pagina = document.getElementById(id);
+  if (pagina && pagina.classList.contains("pagina")) {
+    pagina.classList.add("ativa");
+  } else {
+    document.getElementById("inicio")
+      .classList.add("ativa");
+  }
+});
+
+if (location.hash) {
+  const id = location.hash.slice(1);
+  if (document.getElementById(id)?.classList.contains("pagina")) {
+    abrir(id);
+  }
+}
+</script>
+
+</body>
+</html>
